@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt")
 // @access Private
 const getAllUsers = asyncHandler(async (req, res) => {
     const users = await User.find().select("-password").lean()
-    if (!users) {
+    if (!users.length) {
         return res.status(404).json({ message: "No users found" })
     }
     res.json(users)
@@ -72,15 +72,37 @@ const updateUser = asyncHandler(async (req, res) => {
 
     if (password) {
         // Hash password
-        user.password = await bcrypt.hash(password)
+        user.password = await bcrypt.hash(password, 10)   //Salt rounds
     }
+
+    const updatedUser = await user.save()
+
+    res.json({ message: `${updatedUser.username} updated` })
 })
 
 // @desc Delete a users
 // @route DELETE /users
 // @access Private
 const deleteUser = asyncHandler(async (req, res) => {
+    const { id } = req.body
+    if (!id) {
+        return res.status(400).json({ message: "User ID Required " })
+    }
 
+    const note = await Note.findOne({ user: id }).lean().exec()
+    if (note) {
+        return res.status(400).json({ message: "User had assigned notes" })
+    }
+
+    const user = await User.findById(id).exec()
+    if (!user) {
+        return res.status(400).json({ message: "User not found" })
+    }
+
+    const result = await User.deleteOne()
+    const reply = `Username ${result.username} with ID ${result.id} deleted`
+
+    res.json(reply)
 })
 
 module.exports = {
