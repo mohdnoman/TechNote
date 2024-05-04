@@ -53,6 +53,7 @@ const EditUserForm = ({ user }) => {
 
     const onUsernameChanged = e => setUsername(e.target.value)
     const onPasswordChanged = e => setPassword(e.target.value)
+
     const onRolesChanged = e => {
         const values = Array.from(
             e.target.selectedOptions,
@@ -60,6 +61,7 @@ const EditUserForm = ({ user }) => {
         )
         setRoles(values)
     }
+
     const onActiveChanged = () => setActive(prev => !prev)
 
     const onSaveUserClicked = async (e) => {
@@ -92,7 +94,7 @@ const EditUserForm = ({ user }) => {
     }
 
     const errClass = (isError || isDelError) ? "errmsg" : "offscreen"
-    const validUserClass = username && !validUsername ? 'form__input--incomplete' : ''
+    const validUserClass = !validUsername ? 'form__input--incomplete' : ''
     const validPwdClass = password && !validPassword ? 'form__input--incomplete' : ''
     const validRolesClass = !Boolean(roles.length) ? 'form__input--incomplete' : ''
 

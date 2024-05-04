@@ -1,5 +1,5 @@
-import Note from "./Note"
 import { useGetNotesQuery } from "./notesApiSlice"
+import Note from "./Note"
 
 const NotesList = () => {
     const {
@@ -21,6 +21,7 @@ const NotesList = () => {
     if (isError) {
         content = <p className="errmsg">{error?.data?.message}</p>
     }
+
     if (isSuccess) {
         const { ids } = notes
 
