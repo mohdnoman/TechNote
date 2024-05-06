@@ -150,7 +150,8 @@ a:focus-visible {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  gap: 0.5em;
+  gap: 1rem;
+  size: 2rem;
 }
 
 .dash-container {
