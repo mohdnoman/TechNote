@@ -33,9 +33,6 @@ const DashHeader = () => {
     const onNotesClicked = () => navigate("/dash/notes")
     const onUsersClicked = () => navigate("/dash/users")
 
-    if (isLoading) return <p>Logging Out...</p>
-
-    if (isError) return <p>Error: {error.data?.message}</p>
 
     let dashClass = null
     if (!DASH_REGEX.test(pathname) && !NOTES_REGEX.test(pathname) && !USERS_REGEX.test(pathname)) {
