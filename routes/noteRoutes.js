@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const noteController = require("../controllers/notesContrellers")
+const noteController = require("../controllers/notesControllers")
 const verifyJWT = require("../middleware/verifyJWT")
 
 router.use(verifyJWT)
