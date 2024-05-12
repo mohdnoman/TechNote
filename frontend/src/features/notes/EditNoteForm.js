@@ -76,6 +76,7 @@ const EditNoteForm = ({ note, users }) => {
 
     const errContent = (error?.data?.message || delerror?.data?.message) ?? ''
 
+
     let deleteButton = null
     if (isManager || isAdmin) {
         deleteButton = (
