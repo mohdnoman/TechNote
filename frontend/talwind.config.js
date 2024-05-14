@@ -1,22 +1,13 @@
-<<<<<<< HEAD
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-=======
-const { fontFamily } = require("tailwindcss/defaultTheme")
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  content: [
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
+  ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -62,12 +53,9 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {
@@ -87,4 +75,3 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 }
->>>>>>> 61069fd2b73c80a5e9544a48a54d789a3a2c503d
