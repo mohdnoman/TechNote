@@ -57,10 +57,10 @@ const NewNoteForm = ({ users }) => {
     const content = (
         <>
             <p className={errClass}>{error?.data?.message}</p>
-
+            <div className="m-auto mx-auto bg-blue-200 bg-transparent">
             <form className="form" onSubmit={onSaveNoteClicked}>
-                <div className="form__title-row">
-                    <h2>New Note</h2>
+                    <div className="form__title-row ">
+                        <h2 className="text-2xl">New Note</h2>
                     <div className="form__action-buttons">
                         <button
                             className="icon-button"
@@ -106,6 +106,7 @@ const NewNoteForm = ({ users }) => {
                 </select>
 
             </form>
+            </div>
         </>
     )
 

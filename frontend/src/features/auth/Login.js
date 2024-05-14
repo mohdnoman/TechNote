@@ -62,11 +62,11 @@ const Login = () => {
   const content = (
     <section className="public">
       <header>
-        <h1>Employee Login</h1>
+        <h1 className='text-5xl font-semibold mb-6 text-center'>Employee Login</h1>
       </header>
-      <main className="login">
+      <main className="m-auto min-w-[70%] bg-blue-200 bg-opacity-[0.35] outline-2 outline-slate-600 rounded-md p-[12px]">
         <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
-
+        <div className='m-auto mx-auto'>
         <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input
@@ -89,7 +89,7 @@ const Login = () => {
             value={password}
             required
           />
-          <button className="form__submit-button">Sign In</button>
+          <button className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 hover:text-white transition duration-300 ease-in-out shadow-blue-200 shadow-sm hover:shadow-lg hover:shadow-blue-300">Sign In</button>
           <label htmlFor="persist" className="form__persist">
             <input
               type="checkbox"
@@ -101,9 +101,10 @@ const Login = () => {
             Trust This Device
           </label>
         </form>
+        </div>
       </main>
       <footer>
-        <Link to="/">Back to Home</Link>
+        <Link to="/" className='text-xl text-slate-950 font-semibold'>Back to Home</Link>
       </footer>
     </section>
   )

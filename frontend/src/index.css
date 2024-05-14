@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
@@ -10,17 +14,17 @@
 
 :root {
   /* COLORS */
-  --BGCOLOR: #0F172A;
+  --BGCOLOR: #b4cbffc7;
   --BORDER-COLOR: #FFF;
-  --COLOR: #FFF;
+  --COLOR: rgb(0, 9, 70);
   --ERROR: firebrick;
   --INACTIVE: lightgray;
-  --LINK-COLOR: whitesmoke;
-  --LINK-HOVER: rgba(245, 245, 245, 0.9);
+  --LINK-COLOR: rgb(53, 53, 53);
+  --LINK-HOVER: rgba(0, 0, 0, 0.9);
   --NOTE-BGCOLOR: hsla(240, 64%, 27%, 0.65);
   --STATUS-COMPLETE: limegreen;
   --STATUS-OPEN: firebrick;
-  --TABLE-BGCOLOR: #FFF;
+  --TABLE-BGCOLOR: #f4f4f4c7;
   --TABLE-COLOR: #000;
 }
 
@@ -68,7 +72,9 @@ body {
   background-size: cover;
   background-position: top right;
   background-blend-mode: multiply;
+  backdrop-filter: blur(0.8px);
 }
+
 
 input,
 button,
@@ -88,10 +94,10 @@ a {
   text-decoration: none;
 }
 
-a,
+/* a,
 a:visited {
   color: var(--LINK-COLOR);
-}
+} */
 
 a:hover,
 a:focus-visible {
@@ -115,8 +121,8 @@ a:focus-visible {
 .public__main,
 .login {
   flex-grow: 1;
-  border-top: 2px solid var(--BORDER-COLOR);
-  border-bottom: 2px solid var(--BORDER-COLOR);
+  /* border-top: 2px solid var(--BORDER-COLOR); */
+  /* border-bottom: 2px solid var(--BORDER-COLOR); */
   padding: 1em 0;
 }
 
@@ -136,7 +142,7 @@ a:focus-visible {
   z-index: 1;
   background-color: var(--BGCOLOR);
   padding: 0 0.5em;
-  border-bottom: 1px solid var(--BORDER-COLOR);
+  /* border-bottom: 1px solid var(--BORDER-COLOR); */
 }
 
 .dash-header__container {
@@ -166,7 +172,7 @@ a:focus-visible {
   z-index: 1;
   background-color: var(--BGCOLOR);
   padding: 0.5em;
-  border-top: 1px solid var(--BORDER-COLOR);
+  /* border-top: 1px solid var(--BORDER-COLOR); */
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -213,8 +219,10 @@ tr {
 .table__cell {
   background-color: var(--TABLE-BGCOLOR);
   text-align: left;
-  border: 1px solid var(--TABLE-COLOR);
+  border: 1px solid white;
   padding: 0.5em;
+  backdrop-filter: 0.2;
+  border-radius: 5px;
 }
 
 .table__cell:last-child {
@@ -254,12 +262,20 @@ tr {
   flex-flow: column nowrap;
   gap: 0.75em;
   max-width: 800px;
+  margin: auto;
+  max-height: 700px;
+  outline: 1px solid whitesmoke;
+  background-color: rgba(180, 204, 255, 0.511);
+  padding: 7px;
+  border-radius: 0.5rem;
+  z-index: 2;
 }
 
 .form__checkbox-container {
   display: flex;
   align-items: center;
   width: fit-content;
+  border-radius: 5px;
   gap: 0.5em;
 }
 
